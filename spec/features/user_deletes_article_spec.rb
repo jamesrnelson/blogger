@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'user deletes an article' do
   describe 'they link from the show page' do
-    it 'diesplays all articles without the deleted entry' do
+    it 'displays all articles without the deleted entry' do
       article_1 = Article.create!(title: 'Title 1', body: 'Body 1')
       article_2 = Article.create!(title: 'Title 2', body: 'Body 2')
 
@@ -10,8 +10,9 @@ describe 'user deletes an article' do
       click_link 'delete'
 
       expect(current_path).to eq(articles_path)
-      expect(page).to have_content(article_2.title)
-      expect(page).to_not have_content(article_1.title)
+      expect(page).to have_content(article_2.body)
+      expect(page).to_not have_content(article_1.body)
+      expect(page).to have_content("Article '#{article_1.title}' was deleted.")
     end
   end
 end
