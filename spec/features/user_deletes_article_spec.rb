@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'user deletes an article' do
   describe 'they link from the show page' do
-    it 'diesplays all articles without the deleted entry' do
+    it 'displays all articles without the deleted entry' do
       article_1 = Article.create!(title: 'Title 1', body: 'Body 1')
       article_2 = Article.create!(title: 'Title 2', body: 'Body 2')
 
